@@ -2,7 +2,7 @@
     <li>
         <a
             class="font-bold text-lg mb-4 block"
-            href="/"
+            href="{{ route('home') }}"
         >
             Home
         </a>
@@ -56,7 +56,7 @@
     <li>
         <a
             class="font-bold text-lg mb-4 block"
-            href="/"
+            href="{{ route('profile', auth()->user()) }}"
         >
             Profile
         </a>
