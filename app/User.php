@@ -43,8 +43,13 @@ class User extends Authenticatable
     public function getAvatarAttribute($value)
     {
 //        return "https://i.pravatar.cc/200?u=" . $this->email;
-//        return  asset('/storage/' .$value);
-        return Storage::url($value);
+        return asset($value ? '/storage/' . $value : '/images/default-avatar.png');
+//        return Storage::url($value ?: '/images/default-avatar.png');
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
     }
 
     public function timeline()
